@@ -20,7 +20,7 @@ function respondWithHomepage(response) {
   <!doctype html />
   <html>
     <head>
-      <title>Welcome to api</title>
+      <title>Welcome to the new api sucka!</title>
     </head>
     <body>
       <h1> holy tamales Batman!! </h1>
@@ -57,7 +57,7 @@ function respondWithError(response) {
   <!doctype html />
   <html>
     <head>
-      <title> welcome to api </title>
+      <title> welcome to api punk project manager!</title>
     </head>
     <body>
       <h1> Sorry batman (wah wah wahhhh) </h1>
@@ -81,7 +81,7 @@ function respondWithSubmitPets(request, response) {
   <!doctype html />
   <html>
     <head>
-      <title>Welcome to api</title>
+      <title>Welcome to api of the new</title>
     </head>
     <body>
       <h1>Did we submit?</h1>
