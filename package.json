@@ -1,0 +1,16 @@
+{
+  "name": "pet_api",
+  "version": "1.0.0",
+  "description": "An API about the pets of DC801 (w00t!)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "dc801",
+    "pets",
+    "rest"
+  ],
+  "author": "",
+  "license": "ISC"
+}
