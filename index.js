@@ -70,8 +70,8 @@ function respondWithError(response) {
 
 function respondWithSubmitPets(request, response) {
   //TODO: parse the URL query string
-  //TODO: sanitize the URL parameters
   //TODO: practice an xss injection attack
+  //TODO: sanitize the URL parameters
   //TODO: start capturing our sanitized pet data
   response.writeHead(200, {
     "Content-Type": "text/html",
