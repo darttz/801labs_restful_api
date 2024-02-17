@@ -1,6 +1,14 @@
 const http = require("node:http");
 let hitCount = 0; //let is a way to make a mutable variable. basically saying i'm letting this be thing 'a' until i want it to change to thing 'b'.
 let errorCount = 0;
+//action is where we are subitting the form to
+const petForm = /*html*/`
+  <form action="/submitPets" method="GET">
+    <p><input type="text" name="name" placeholder="what's your pet's name?" /></p>
+    <p><input type="submit" value="Submit Pet" /></p>
+  </form>
+`
+
 //define respondWithHomepage Function
 function respondWithHomepage(response) {
   hitCount++;
@@ -8,16 +16,17 @@ function respondWithHomepage(response) {
     "Content-Type": "text/html",
     "racoon-invasion-status": "the racoons have not yet invaded. we're safe.... for now."
   });
-  response.end(`
+  response.end(/*html*/`
   <!doctype html />
   <html>
     <head>
-      <title> welcome to api</title>
+      <title>Welcome to api</title>
     </head>
     <body>
       <h1> holy tamales Batman!! </h1>
       <p> there are tamales everywhere.</p>
       <p> ${hitCount} tamales have been made here...</p>
+      ${petForm}
     </body>
   </html>
   `);
@@ -44,7 +53,7 @@ function respondWithError(response) {
     "Content-Type": "text/html",
     "racoon-invasion-status": "THE RACOONS ARE INVADING!! WE'RE ALL DOOOOMED!!"
   });
-  response.end(`
+  response.end(/*html*/`
   <!doctype html />
   <html>
     <head>
@@ -59,12 +68,38 @@ function respondWithError(response) {
   `);
 }
 
+function respondWithSubmitPets(request, response) {
+  //TODO: parse the URL query string
+  //TODO: sanitize the URL parameters
+  //TODO: practice an xss injection attack
+  //TODO: start capturing our sanitized pet data
+  response.writeHead(200, {
+    "Content-Type": "text/html",
+    "racoon-invasion-status": "the racoons have not yet invaded. we're safe.... for now."
+  });
+  response.end(/*html*/`
+  <!doctype html />
+  <html>
+    <head>
+      <title>Welcome to api</title>
+    </head>
+    <body>
+      <h1>Did we submit?</h1>
+      <p> Looks like submit!</p>
+    </body>
+  </html>
+  `);
+
+}
+
 const handleIncomingRequest = (request, response) => {
   console.log("what is request.url?", request.url);
   if (request.url === "/") {
     respondWithHomepage(response);
   } else if(request.url === "/frogs"){
     respondWithFrogs(response);
+  } else if(request.url.startsWith("/submitPets")){
+    respondWithSubmitPets(request, response);
   } else {
     respondWithError(response);
   }
