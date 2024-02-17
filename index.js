@@ -9,7 +9,7 @@ const handleIncomingRequest = (request, response) => {
     goatCount += 1;
     response.writeHead(200, {
       'Content-Type': 'application/json',
-      'goat-integrity': 'Yes, these goats are trustworthy.',
+      'goat-integrity': 'Yes, these goats are trustworthy!',
       'all-the-things': 'These are the things'
     });
     response.end(JSON.stringify({
