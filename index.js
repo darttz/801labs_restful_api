@@ -8,6 +8,11 @@ const petForm = /*html*/`
     <p><input type="submit" value="Submit Pet" /></p>
   </form>
 `
+const css = /* html */ `
+<style type="text/css">
+body {background-color:#000; color: #fff;}
+</style>
+`
 
 //define respondWithHomepage Function
 function respondWithHomepage(response) {
@@ -21,6 +26,7 @@ function respondWithHomepage(response) {
   <html>
     <head>
       <title>Welcome to the new api sucka!</title>
+      ${css}
     </head>
     <body>
       <h1> holy tamales Batman!! </h1>
@@ -58,6 +64,7 @@ function respondWithError(response) {
   <html>
     <head>
       <title> welcome to api punk project manager!</title>
+      ${css}
     </head>
     <body>
       <h1> Sorry batman (wah wah wahhhh) </h1>
@@ -82,6 +89,7 @@ function respondWithSubmitPets(request, response) {
   <html>
     <head>
       <title>Welcome to api of the new</title>
+      ${css}
     </head>
     <body>
       <h1>Did we submit?</h1>
