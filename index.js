@@ -10,7 +10,9 @@ const petForm = /*html*/`
 `
 const css = /* html */ `
 <style type="text/css">
-body {background-color:#000; color: #fff;}
+body {background-color:#000; color: #fff; font-family:Arial, Helvetica, sans-serif;}
+.container {width:600px; height:600px; background-color:#262626; border:1px solid #fff; padding:0 20px;}
+h1 {color:#cef; border:1px dashed #ccc; text-align:center; padding:12px 0;}
 </style>
 `
 
@@ -22,17 +24,19 @@ function respondWithHomepage(response) {
     "racoon-invasion-status": "the racoons have not yet invaded. we're safe.... for now."
   });
   response.end(/*html*/`
-  <!doctype html />
+  <!doctype html>
   <html>
     <head>
       <title>Welcome to the new api sucka!</title>
       ${css}
     </head>
     <body>
-      <h1> holy tamales Batman!! </h1>
-      <p> there are tamales everywhere.</p>
-      <p> ${hitCount} tamales have been made here...</p>
-      ${petForm}
+      <div class="container">
+        <h1> holy tamales Batman!! </h1>
+        <p> there are tamales everywhere.</p>
+        <p> ${hitCount} tamales have been made here...</p>
+        ${petForm}
+      </div>
     </body>
   </html>
   `);
