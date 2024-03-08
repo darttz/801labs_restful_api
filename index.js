@@ -10,9 +10,24 @@ const petForm = /*html*/`
 `
 const css = /* html */ `
 <style type="text/css">
-body {background-color:#000; color: #fff; font-family:Arial, Helvetica, sans-serif;}
-.container {width:600px; height:600px; background-color:#262626; border:1px solid #fff; padding:0 20px;}
-h1 {color:#cef; border:1px dashed #ccc; text-align:center; padding:12px 0;}
+body {
+  background-color:#000; 
+  color: #fff; 
+  font-family:Arial, Helvetica, sans-serif;
+}
+.container {
+  width:600px; 
+  height:600px; 
+  background-color:#262626; 
+  border:1px solid #fff; 
+  padding:0 20px;
+}
+h1 {
+  color:#cef; 
+  border:1px dashed #ccc; 
+  text-align:center; 
+  padding:12px 0;
+}
 </style>
 `
 
@@ -104,6 +119,9 @@ function respondWithSubmitPets(request, response) {
 
 }
 
+const honk = function() {
+  console.log('honk');
+}
 const handleIncomingRequest = (request, response) => {
   console.log("what is request.url?", request.url);
   if (request.url === "/") {
@@ -115,6 +133,7 @@ const handleIncomingRequest = (request, response) => {
   } else {
     respondWithError(response);
   }
+  honk();
 };
 // Create a local server to receive data from
 const server = http.createServer(handleIncomingRequest);
