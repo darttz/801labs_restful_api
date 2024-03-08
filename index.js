@@ -99,6 +99,7 @@ function respondWithSubmitPets(request, response) {
   //TODO: practice an xss injection attack
   //TODO: sanitize the URL parameters
   //TODO: start capturing our sanitized pet data
+  //TODO: ask about closures & scopes
   response.writeHead(200, {
     "Content-Type": "text/html",
     "racoon-invasion-status": "the racoons have not yet invaded. we're safe.... for now."
