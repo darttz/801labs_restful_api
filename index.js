@@ -4,7 +4,16 @@ let errorCount = 0;
 //action is where we are subitting the form to
 const petForm = /*html*/`
   <form action="/submitPets" method="GET">
-    <p><input type="text" name="name" placeholder="what's your pet's name?" /></p>
+    <p><label><span>Pet's Name: </span><input type="text" name="name" /></label></p>
+    <p><label><span>Pet's Power Level: </span><input type="number" name="powerLevel" /></label></p>
+    
+    <p><label><span>Is this goat Grumpy?</span><input type="checkbox" value="true" name="isGrumpy" /></label></p>
+    <h3>Fruit selection:</h3>
+    <p><label><span>Oranges</span><input type="checkbox" value="oranges" name="fruits" /></label></p>
+    <p><label><span>Pineapples</span><input type="checkbox" value="pineapples" name="fruits" /></label></p>
+    <p><label><span>Kiwis</span><input type="checkbox" value="kiwis" name="fruits" /></label></p>
+    <p><label><span>Bananas</span><input type="checkbox" value="bananas" name="fruits" /></label></p>
+
     <p><input type="submit" value="Submit Pet" /></p>
   </form>
 `
@@ -100,6 +109,12 @@ function respondWithSubmitPets(request, response) {
   //TODO: sanitize the URL parameters
   //TODO: start capturing our sanitized pet data
   //TODO: ask about closures & scopes
+
+  // parsing the queryString
+  const queryString = request.url.split('?').pop()
+  const queryStringParameters = queryString.split('&')
+  console.log('what is queryString?',queryString)
+  console.log('what is queryStringParameters?',queryStringParameters)
   response.writeHead(200, {
     "Content-Type": "text/html",
     "racoon-invasion-status": "the racoons have not yet invaded. we're safe.... for now."
